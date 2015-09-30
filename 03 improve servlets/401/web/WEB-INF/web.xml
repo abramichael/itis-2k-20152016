@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <servlet>
+        <servlet-name>anon</servlet-name>
+        <servlet-class>AnonServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>anon</servlet-name>
+        <url-pattern>/anon</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>secret</servlet-name>
+        <servlet-class>SecretServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>secret</servlet-name>
+        <url-pattern>/secret</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>/home.jsp</welcome-file>
+    </welcome-file-list>
+
+    <servlet>
+        <servlet-name>error404</servlet-name>
+        <jsp-file>/404.html</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>error404</servlet-name>
+        <url-pattern>/error404</url-pattern>
+    </servlet-mapping>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error404</location>
+    </error-page>
+
+    <servlet>
+        <servlet-name>contacts</servlet-name>
+        <jsp-file>/contacts.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>contacts</servlet-name>
+        <url-pattern>/contacts</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <url-pattern>*.css</url-pattern>
+        <servlet-name>default</servlet-name>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>anonfilter</filter-name>
+        <filter-class>AnonFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>anonfilter</filter-name>
+        <servlet-name>secret</servlet-name>
+        <servlet-name>contacts</servlet-name>
+    </filter-mapping>
+
+</web-app>
