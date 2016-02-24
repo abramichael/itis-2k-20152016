@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       default-init-method="wakeUp"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="itis" class="ITInstitute">
+        <constructor-arg value="ITIS"/>
+    </bean>
+
+
+    <bean id="sportfak" class="ProfInstitute">
+        <constructor-arg value="Sportfak"/>
+    </bean>
+
+
+    <bean id="proga" class="Lesson">
+        <constructor-arg value="Programming"/>
+    </bean>
+    <bean id="ma" class="Lesson">
+        <constructor-arg value="Matan"/>
+    </bean>
+
+    <bean id="aygul" class="Student">
+        <property name="name" value="Aygul"/>
+        <property name="institute" ref="itis"/>
+        <property name="lessons">
+            <list>
+                <ref bean="ma"/>
+                <ref bean="proga"/>
+            </list>
+        </property>
+    </bean>
+
+
+    <bean id="kachalka" class="Lesson">
+        <constructor-arg value="Kachalka"></constructor-arg>
+    </bean>
+
+    <bean id="sasha" class="Student" scope="singleton">
+        <constructor-arg name="name" value="Alexander"/>
+        <constructor-arg name="institute" ref="sportfak"/>
+        <property name="schedule">
+            <map>
+                <entry key="8:00" value-ref="ma"/>
+                <entry key="10:10" value-ref="kachalka"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="kfu" class="Univer" factory-method="getUniver"/>
+
+</beans>
