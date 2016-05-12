@@ -38,24 +38,24 @@ public class Main extends Application {
         return new Scene(root, windowWidth, windowHeight);
     }
 
-    private Random random = new Random(); // нам нужен рандом!!
+    private Random random = new Random(); // РЅР°Рј РЅСѓР¶РµРЅ СЂР°РЅРґРѕРј!!
 
     private Label createLabel() {
-        Label label = new Label();    // создание билдера для Label
-        label.setText("SomeText");            // текстовое значение
-        label.prefWidth(100);                // возможная ширина
-        label.prefHeight(50);                // возможная высота
-        label.setAlignment(Pos.CENTER);         // выравнивание содержимого по центру
-        label.setLayoutX(random.nextInt(windowWidth - 100)); // задание  коорд. Х
-        label.setLayoutY(random.nextInt(windowHeight - 50));  // задание  коорд. Y
-        label.setStyle("-fx-background-color: orange;");  // зарисуем фон в оранжевый
+        Label label = new Label();    // СЃРѕР·РґР°РЅРёРµ Р±РёР»РґРµСЂР° РґР»СЏ Label
+        label.setText("SomeText");            // С‚РµРєСЃС‚РѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ
+        label.prefWidth(100);                // РІРѕР·РјРѕР¶РЅР°СЏ С€РёСЂРёРЅР°
+        label.prefHeight(50);                // РІРѕР·РјРѕР¶РЅР°СЏ РІС‹СЃРѕС‚Р°
+        label.setAlignment(Pos.CENTER);         // РІС‹СЂР°РІРЅРёРІР°РЅРёРµ СЃРѕРґРµСЂР¶РёРјРѕРіРѕ РїРѕ С†РµРЅС‚СЂСѓ
+        label.setLayoutX(random.nextInt(windowWidth - 100)); // Р·Р°РґР°РЅРёРµ  РєРѕРѕСЂРґ. РҐ
+        label.setLayoutY(random.nextInt(windowHeight - 50));  // Р·Р°РґР°РЅРёРµ  РєРѕРѕСЂРґ. Y
+        label.setStyle("-fx-background-color: orange;");  // Р·Р°СЂРёСЃСѓРµРј С„РѕРЅ РІ РѕСЂР°РЅР¶РµРІС‹Р№
         addTranslateListener(label);
         return label;
     }
 
-    private Node node;   // ссылка на объект, который будем перетаскивать
-    private Vec2f delta; // координаты указателя мыши относительно элемента
-    // нужны для того, чтобы не было резкого рывка вначале движения
+    private Node node;   // СЃСЃС‹Р»РєР° РЅР° РѕР±СЉРµРєС‚, РєРѕС‚РѕСЂС‹Р№ Р±СѓРґРµРј РїРµСЂРµС‚Р°СЃРєРёРІР°С‚СЊ
+    private Vec2f delta; // РєРѕРѕСЂРґРёРЅР°С‚С‹ СѓРєР°Р·Р°С‚РµР»СЏ РјС‹С€Рё РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ СЌР»РµРјРµРЅС‚Р°
+    // РЅСѓР¶РЅС‹ РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РЅРµ Р±С‹Р»Рѕ СЂРµР·РєРѕРіРѕ СЂС‹РІРєР° РІРЅР°С‡Р°Р»Рµ РґРІРёР¶РµРЅРёСЏ
 /*
     private void addTranslateListener(final Node node) {
         node.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -64,8 +64,8 @@ public class Main extends Application {
             public void handle(MouseEvent mouseEvent) {
                 delta = new Vec2f((float) (mouseEvent.getSceneX() - node.getLayoutX()),
                         (float) (mouseEvent.getSceneY() - node.getLayoutY()));
-                // вичисление координат относительно элемeнта
-                Main.this.node = node;   // сохраняем ссылку на объект
+                // РІРёС‡РёСЃР»РµРЅРёРµ РєРѕРѕСЂРґРёРЅР°С‚ РѕС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ СЌР»РµРјeРЅС‚Р°
+                Main.this.node = node;   // СЃРѕС…СЂР°РЅСЏРµРј СЃСЃС‹Р»РєСѓ РЅР° РѕР±СЉРµРєС‚
             }
         });
 
@@ -73,7 +73,7 @@ public class Main extends Application {
 
             @Override
             public void handle(MouseEvent mouseEvent) {
-                Main.this.node = null;  // обнулям ссылку на объект
+                Main.this.node = null;  // РѕР±РЅСѓР»СЏРј СЃСЃС‹Р»РєСѓ РЅР° РѕР±СЉРµРєС‚
             }
         });
 
@@ -82,7 +82,7 @@ public class Main extends Application {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 if (node != null) {
-// если есть что перетаскивать, перетаскиваем
+// РµСЃР»Рё РµСЃС‚СЊ С‡С‚Рѕ РїРµСЂРµС‚Р°СЃРєРёРІР°С‚СЊ, РїРµСЂРµС‚Р°СЃРєРёРІР°РµРј
                     node.setLayoutX(mouseEvent.getSceneX() - delta.x);
                     node.setLayoutY(mouseEvent.getSceneY() - delta.y);
                 }
@@ -123,23 +123,23 @@ public class Main extends Application {
             public void handle(MouseEvent mouseEvent) {
                 if (node != null ) {
                     if (isRotate) {
-                        // подсчет нового угла основуется на подсчета угла между двома векторами
-// это несложная математика, и поэтому тут должно быть все понятно)
+                        // РїРѕРґСЃС‡РµС‚ РЅРѕРІРѕРіРѕ СѓРіР»Р° РѕСЃРЅРѕРІСѓРµС‚СЃСЏ РЅР° РїРѕРґСЃС‡РµС‚Р° СѓРіР»Р° РјРµР¶РґСѓ РґРІРѕРјР° РІРµРєС‚РѕСЂР°РјРё
+// СЌС‚Рѕ РЅРµСЃР»РѕР¶РЅР°СЏ РјР°С‚РµРјР°С‚РёРєР°, Рё РїРѕСЌС‚РѕРјСѓ С‚СѓС‚ РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ РІСЃРµ РїРѕРЅСЏС‚РЅРѕ)
                         double dx1 = mouseEvent.getSceneX() - node.getLayoutX();
                         double dy1 = mouseEvent.getSceneY() - node.getLayoutY();
                         double l = Math.sqrt(dx1 *dx1 + dy1 *dy1);
-                        dx1 /= l; // нормализация
-                        dy1 /= l; // вектора
+                        dx1 /= l; // РЅРѕСЂРјР°Р»РёР·Р°С†РёСЏ
+                        dy1 /= l; // РІРµРєС‚РѕСЂР°
 
-                        double angle = PI/2; // за второй вектор было взято
-                        double dx2 = sin(angle);      // единичный вектор,
-                        double dy2 = cos(angle);      // который повернутый на 90 градусов
+                        double angle = PI/2; // Р·Р° РІС‚РѕСЂРѕР№ РІРµРєС‚РѕСЂ Р±С‹Р»Рѕ РІР·СЏС‚Рѕ
+                        double dx2 = sin(angle);      // РµРґРёРЅРёС‡РЅС‹Р№ РІРµРєС‚РѕСЂ,
+                        double dy2 = cos(angle);      // РєРѕС‚РѕСЂС‹Р№ РїРѕРІРµСЂРЅСѓС‚С‹Р№ РЅР° 90 РіСЂР°РґСѓСЃРѕРІ
 
                         double cosA = dx1 * dx2 + dy1 * dy2;
                         angle = acos(cosA);
 
                         if (dy1 < 0) angle = PI - angle ;
-                        node.setRotate(angle / PI * 180); // из радиан в градусы
+                        node.setRotate(angle / PI * 180); // РёР· СЂР°РґРёР°РЅ РІ РіСЂР°РґСѓСЃС‹
                     }
                     else {
                         node.setLayoutX(mouseEvent.getSceneX() - delta.x);
